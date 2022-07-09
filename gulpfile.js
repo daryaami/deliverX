@@ -1,5 +1,5 @@
 // Определяем переменную "preprocessor"
-let preprocessor = 'sass'; // Выбор препроцессора в проекте - sass или less
+let preprocessor = 'sass'; 
 
 // Определяем константы Gulp
 const { src, dest, parallel, series, watch } = require('gulp');
@@ -38,13 +38,10 @@ function browsersync() {
 	})
 }
 
-// Экспортируем функцию browsersync() как таск browsersync. Значение после знака = это имеющаяся функция.
-exports.browsersync = browsersync;
-
 function scripts() {
 	return src([ // Берем файлы из источников
-		'node_modules/jquery/dist/jquery.min.js', // Пример подключения библиотеки
-		'app/js/app.js', // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
+		//'node_modules/jquery/dist/jquery.min.js', // Пример подключения библиотеки
+		'app/js/script.js', // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
 		])
 	.pipe(concat('app.min.js')) // Конкатенируем в один файл
 	.pipe(uglify()) // Сжимаем JavaScript
@@ -52,23 +49,8 @@ function scripts() {
 	.pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 }
 
-function startwatch() {
-
-	// Выбираем все файлы JS в проекте, а затем исключим с суффиксом .min.js
-	watch(['app/**/*.js', '!app/**/*.min.js'], scripts);
-
-    // Мониторим файлы препроцессора на изменения
-	watch('app/**/' + preprocessor + '/**/*', styles);
-
-    // Мониторим файлы HTML на изменения
-	watch('app/**/*.html').on('change', browserSync.reload);
-
-    // Мониторим папку-источник изображений и выполняем images(), если есть изменения
-	watch('app/images/src/**/*', images);
-}
-
 function styles() {
-	return src('app/' + preprocessor + '/main.' + preprocessor + '') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
+	return src('app/' + preprocessor + '/main.scss' + '') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
 	.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
 	.pipe(concat('app.min.css')) // Конкатенируем в файл app.min.js
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
@@ -111,6 +93,25 @@ function buildcopy() {
 function cleandist() {
 	return del('dist/**/*', { force: true }) // Удаляем все содержимое папки "dist/"
 }
+
+function startwatch() {
+
+	// Выбираем все файлы JS в проекте, а затем исключим с суффиксом .min.js
+	watch(['app/**/*.js', '!app/**/*.min.js'], scripts);
+	
+	// Мониторим файлы препроцессора на изменения
+	watch('app/**/' + preprocessor + '/**/*', styles);
+
+	// Мониторим файлы HTML на изменения
+	watch('app/**/*.html').on('change', browserSync.reload);
+
+	// Мониторим папку-источник изображений и выполняем images(), если есть изменения
+	watch('app/images/src/**/*', images);
+
+}
+
+// Экспортируем функцию browsersync() как таск browsersync. Значение после знака = это имеющаяся функция.
+exports.browsersync = browsersync;
 
 // Экспортируем функцию scripts() в таск scripts
 exports.scripts = scripts;
