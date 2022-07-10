@@ -132,13 +132,18 @@ body {
 
 // ----------------example
 .intro {
+    // .intro__main
 
+    &__main {
+        display: flex;
+        flex-direction: row;
+    }
+    
     // .intro__container
 
     &__container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        
+        
     }
 
     // .intro__content
@@ -199,12 +204,25 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: 0 0 163px 0;
+        margin: 0 0 180px 0;
     }
 
     // .intro__image
 
     &__image {
+        
+        z-index: -1;
+        position: absolute;
+        right: 0;
+        // width: 38%;
+        // background-repeat: no-repeat;
+        // background-image: url('../images/dest/IMAGEmain.jpg');
+        
+    }
+
+    // .intro__trustedby
+
+    &__trustedby {
     }
 }
 
@@ -218,33 +236,32 @@ body {
     // .text_subtitle
 
     &_subtitle {
-        line-height: 20px;
-        letter-spacing: 1.08px;
-        text-transform: uppercase;
-        color: $colorMain;
         margin: 0 0 28px 0;
     }
 
     // .text_title
 
     &_title {
-        font-weight: 700;
-        font-size: 44px;
-        line-height: 72px;
         margin: 0 0 16px 0;
     }
 
     // .text_suptitle
 
     &_suptitle {
-        font-size: 12px;
-        line-height: 30px;
-        color: #656565;
         margin: 0 0 33px 0;
     }
 }
-.title {
+.subtitle {
+    line-height: 20px;
+    letter-spacing: 1.08px;
+    text-transform: uppercase;
+    color: $colorMain;
+}
 
+.title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 72px;
     // .title_big
 
     &_big {
@@ -252,7 +269,10 @@ body {
     }
 }
 .suptitle {
-    
+    font-size: 12px;
+    line-height: 30px;
+    color: #656565;
+
     // .suptitle_small
 
     &_big {
@@ -296,16 +316,264 @@ body {
     }
 }
 
+.trustedby {
 
+    // .trustedby_subtitle
 
-.first {
+    &_suptitle {
+        font-size: 20px;
+        line-height: 22px;
+        text-align: center;
+        color: #656565;
+        margin: 132px 0 48px 0;
+    }
+
+    // .trustedby_restaurants
+
+    &_restaurants {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 0 148px 0;
+        position: relative;
+        &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background: #CACACA;
+        }
+    }
+
+    // .trustedby__item
+
+    &__item {
+        width: 239px;
+        height: 40px;
+    }
 }
-.intro__image {
-    z-index: -1;
-    position: absolute;
-    right: 0;
-    // height: 100%;
-    // width: 38%;
-    // background-repeat: no-repeat;
-    // background-image: url('../images/dest/IMAGEmain.jpg');
+
+.howitworks {
+
+    // .howitworks_button
+
+    &_button {
+    }
+
+    // .howitworks__text
+
+    &__text_block {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 199px 0 0 0;
+    }
+
+    // .howitworks__steps
+
+    &__steps {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    // .howitworks__item
+
+    &__item {
+        max-width: 342px;
+    }
+
+    // .howitworks__buttons
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 26px;
+        justify-content: center;
+        padding: 0 0 200px 0;
+        position: relative;
+        &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            bottom: 0;
+            background: #CACACA;
+        }
+    }
+    // .howitworks__subtitle
+
+    &__subtitle {
+        margin: 0 0 7px 0;
+    }
+
+    // .howitworks__title
+
+    &__title {
+        max-width: 700px;
+        margin: 0 0 22px 0;
+    }
+
+    // .howitworks__suptitle
+
+    &__suptitle {
+        margin: 0 0 100px 0;
+    }
 }
+
+.steps {
+
+    // .steps_item
+
+    &_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .steps_picture
+
+    &_picture {
+        margin: 0 0 32px 0;
+    }
+
+    // .steps_title
+
+    &_title {
+        font-size: 28px;
+        line-height: 40px;
+        color: #121212;
+        text-align: center;
+        margin: 0 0 15px 0;
+    }
+
+    // .steps_subtitle
+
+    &_subtitle {
+        font-size: 18px;
+        text-align: center;
+        margin: 0 0 53px 0;
+    }
+}
+
+.learnwhy {
+
+    // .learnwhy__container
+
+    &__container {
+    }
+
+    // .learnwhy__main
+
+    &__main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 200px 0 80px 0;
+    }
+
+    // .learnwhy__content
+
+    &__content {
+
+    }
+
+    // .learnwhy__text_block
+
+    &__text_block {
+        max-width: 72%;
+    }
+
+    // .learnwhy__title
+
+    &__title {
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 54px;
+        margin: 0 0 16px 0;
+    }
+
+    // .learnwhy__subtitle
+
+    &__subtitle {
+        margin: 0 0 33px 0;
+    }
+
+    // .learnwhy__isgreat_items
+
+    &__isgreat_items {
+        display: grid;
+        grid-template-columns: 40% 40%;
+        grid-template-rows: 40% 40%;
+        gap: 48px;
+    }
+
+    // .learnwhy__image
+
+    &__image {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "";
+            top: 10%;
+            left: -25%;
+            background-image: url("../images/dest/pictures/Framebrowse2.png");
+            background-repeat: no-repeat;
+            width: 282px;
+            height: 570px;
+        }
+    }
+
+    // .learnwhy__buttons
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 27px;
+    }
+
+    // .learnwhy__button
+
+    &__button {
+        margin: 0 0 200px 0;
+    }
+}
+
+.isgreat {
+
+    // .isgreat__item
+
+    &__item {
+        max-width: 250px;
+
+    }
+
+    // .isgreat__picture
+
+    &__picture {
+        margin: 0 0 24px 0;
+    }
+
+    // .isgreat__title
+
+    &__title {
+        font-size: 22px;
+        line-height: 28px;
+        margin: 0 0 14px 0;
+    }
+
+    // .isgreat__suptitle
+
+    &__suptitle {
+        font-size: 14px;
+        line-height: 30px;
+        color: #656565;
+    }
+}
+
