@@ -1,5 +1,6 @@
 // Обнуление---------------------------
 @import "null";
+// Шрифт по умолчанию------------------
 
 // Переменные----------------------------
 $minWidth: 320px;
@@ -23,6 +24,9 @@ body {
     //background-color: rgb(26, 110, 81);
 }
 
+.wrapper {
+    width: 100%;
+}
 ._container {
     box-sizing: border-box;
     max-width: $md1;
@@ -126,7 +130,7 @@ body {
     }
 }
 
-// ----------------Main---------------
+// ----------------example
 .intro {
     // .intro__main
 
