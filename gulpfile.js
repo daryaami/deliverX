@@ -80,15 +80,15 @@ function cleanimg() {
 	return del('/images/dest/**/*', { force: true }) // Удаляем все содержимое папки "app/images/dest/"
 }
 
-function buildcopy() {
-	return src([ // Выбираем нужные файлы
-		'/css/**/*.min.css',
-		'/js/**/*.min.js',
-		'/images/dest/**/*',
-		'/**/*.html',
-		], { base: '' }) // Параметр "base" сохраняет структуру проекта при копировании
-	.pipe(dest('dist')) // Выгружаем в папку с финальной сборкой
-}
+// function buildcopy() {
+// 	return src([ // Выбираем нужные файлы
+// 		'/css/**/*.min.css',
+// 		'/js/**/*.min.js',
+// 		'/images/dest/**/*',
+// 		'/**/*.html',
+// 		], { base: '' }) // Параметр "base" сохраняет структуру проекта при копировании
+// 	.pipe(dest('dist')) // Выгружаем в папку с финальной сборкой
+// }
 
 function cleandist() {
 	return del('dist/**/*', { force: true }) // Удаляем все содержимое папки "dist/"
@@ -125,8 +125,8 @@ exports.images = images;
 // Экспортируем функцию cleanimg() как таск cleanimg
 exports.cleanimg = cleanimg;
 
-// Создаем новый таск "build", который последовательно выполняет нужные операции
-exports.build = series(cleandist, styles, scripts, images, buildcopy);
+// // Создаем новый таск "build", который последовательно выполняет нужные операции
+// exports.build = series(cleandist, styles, scripts, images, buildcopy);
 
 // Экспортируем дефолтный таск с нужным набором функций
 exports.default = parallel(styles, scripts, browsersync, startwatch);
