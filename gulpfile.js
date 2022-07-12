@@ -26,44 +26,44 @@ const imagecomp = require('compress-images');
 const del = require('del');
 
 const browsersync = () => {
-	browserSync.init({ // Инициализация Browsersync
-		server: { baseDir: './' }, // Указываем папку сервера
-		notify: false, // Отключаем уведомления
-		online: true // Режим работы: true или false
+	browserSync.init({ 
+		server: { baseDir: './' },
+		notify: false, 
+		online: true 
 	})
 }
 
 const scripts = () => {
-	return src([ // Берем файлы из источников
+	return src([ 
 		//'node_modules/jquery/dist/jquery.min.js', // Пример подключения библиотеки
-		'js/script.js', // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
+		'js/script.js', 
 		])
-	.pipe(concat('min.js')) // Конкатенируем в один файл
-	.pipe(uglify()) // Сжимаем JavaScript
-	.pipe(dest('js/')) // Выгружаем готовый файл в папку назначения
-	.pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
+	.pipe(concat('min.js'))
+	.pipe(uglify()) 
+	.pipe(dest('js/')) 
+	.pipe(browserSync.stream()) 
 }
 
 const styles = () => {
-	return src('sass/main.scss') // Выбираем источник
-	.pipe(eval(sass)()) // Преобразуем в функцию
-	.pipe(concat('min.css')) // Конкатенируем в файл app.min.js
-	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
-	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
-	.pipe(dest('css/')) // Выгрузим результат в папку "app/css/"
-	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+	return src('sass/main.scss')
+	.pipe(eval(sass)()) 
+	.pipe(concat('min.css')) 
+	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) 
+	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) 
+	.pipe(dest('css/')) 
+	.pipe(browserSync.stream()) 
 }
 
 async function images() {
 	imagecomp(
-		"images/src/**/*", // Берём все изображения из папки источника
-		"images/dest/", // Выгружаем оптимизированные изображения в папку назначения
-		{ compress_force: false, statistic: true, autoupdate: true }, false, // Настраиваем основные параметры
-		{ jpg: { engine: "mozjpeg", command: ["-quality", "75"] } }, // Сжимаем и оптимизируем изображеня
+		"images/src/**/*", 
+		"images/dest/",
+		{ compress_force: false, statistic: true, autoupdate: true }, false, 
+		{ jpg: { engine: "mozjpeg", command: ["-quality", "75"] } }, 
 		{ png: { engine: "pngquant", command: ["--quality=75-100", "-o"] } },
 		{ svg: { engine: "svgo", command: "--multipass" } },
 		{ gif: { engine: "gifsicle", command: ["--colors", "64", "--use-col=web"] } },
-		function (err, completed) { // Обновляем страницу по завершению
+		function (err, completed) { 
 			if (completed === true) {
 				browserSync.reload()
 			}
@@ -72,7 +72,7 @@ async function images() {
 }
 
 const cleanimg = () => {
-	return del('images/dest/**/*', { force: true }) // Удаляем все содержимое папки "app/images/dest/"
+	return del('images/dest/**/*', { force: true }) 
 }
 
 // function buildcopy() {
@@ -91,37 +91,28 @@ const cleanimg = () => {
 
 const startwatch = () => {
 
-	// Выбираем все файлы JS в проекте, а затем исключим с суффиксом .min.js
 	watch(['**/*.js', '!**/*.min.js'], scripts);
 	
-	// Мониторим файлы препроцессора на изменения
 	watch('**/sass/**/*', styles);
 
-	// Мониторим файлы HTML на изменения
 	watch('**/*.html').on('change', browserSync.reload);
 
-	// Мониторим папку-источник изображений и выполняем images(), если есть изменения
 	watch('images/src/**/*', images);
 
 }
 
-// Экспортируем функцию browsersync() как таск browsersync. Значение после знака = это имеющаяся функция.
 exports.browsersync = browsersync;
 
-// Экспортируем функцию scripts() в таск scripts
 exports.scripts = scripts;
 
-// Экспортируем функцию styles() в таск styles
 exports.styles = styles;
 
-// Экспорт функции images() в таск images
 exports.images = images;
 
-// Экспортируем функцию cleanimg() как таск cleanimg
 exports.cleanimg = cleanimg;
 
-// // Создаем новый таск "build", который последовательно выполняет нужные операции
+// 
 // exports.build = series(cleandist, styles, scripts, images, buildcopy);
 
-// Экспортируем дефолтный таск с нужным набором функций
+// Дефолтный таск 
 exports.default = parallel(styles, scripts, browsersync, startwatch);
