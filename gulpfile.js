@@ -1,68 +1,63 @@
-// Определяем переменную "preprocessor"
-let preprocessor = 'sass'; 
+// константы Gulp
+const { src, dest, parallel, /*series, */ watch } = require('gulp');
 
-// Определяем константы Gulp
-const { src, dest, parallel, series, watch } = require('gulp');
-
-// Подключаем Browsersync
+// Browsersync
 const browserSync = require('browser-sync').create();
 
-// Подключаем gulp-concat
+// gulp-concat
 const concat = require('gulp-concat');
 
-// Подключаем gulp-uglify-es
+// gulp-uglify-es
 const uglify = require('gulp-uglify-es').default;
 
-// Подключаем модули gulp-sass и gulp-less
+// gulp-sass
 const sass = require('gulp-sass')(require('sass'));
-const less = require('gulp-less');
 
-// Подключаем Autoprefixer
+// Autoprefixer
 const autoprefixer = require('gulp-autoprefixer');
 
-// Подключаем модуль gulp-clean-css
+// gulp-clean-css
 const cleancss = require('gulp-clean-css');
 
-// Подключаем compress-images для работы с изображениями
+// compress-images для работы с изображениями
 const imagecomp = require('compress-images');
 
-// Подключаем модуль del
+// модуль del
 const del = require('del');
 
-// Определяем логику работы Browsersync
-function browsersync() {
+const browsersync = () => {
 	browserSync.init({ // Инициализация Browsersync
-		server: { baseDir: '/' }, // Указываем папку сервера
+		server: { baseDir: './' }, // Указываем папку сервера
 		notify: false, // Отключаем уведомления
 		online: true // Режим работы: true или false
 	})
 }
 
-function scripts() {
+const scripts = () => {
 	return src([ // Берем файлы из источников
 		//'node_modules/jquery/dist/jquery.min.js', // Пример подключения библиотеки
-		'/js/script.js', // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
+		'js/script.js', // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
 		])
-	.pipe(concat('app.min.js')) // Конкатенируем в один файл
+	.pipe(concat('min.js')) // Конкатенируем в один файл
 	.pipe(uglify()) // Сжимаем JavaScript
-	.pipe(dest('/js/')) // Выгружаем готовый файл в папку назначения
+	.pipe(dest('js/')) // Выгружаем готовый файл в папку назначения
 	.pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 }
 
-function styles() {
-	return src('/' + preprocessor + '/main.scss' + '') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
-	.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
-	.pipe(concat('app.min.css')) // Конкатенируем в файл app.min.js
+const styles = () => {
+	return src('sass/main.scss') // Выбираем источник
+	.pipe(eval(sass)()) // Преобразуем в функцию
+	.pipe(concat('min.css')) // Конкатенируем в файл app.min.js
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
 	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
-	.pipe(dest('/css/')) // Выгрузим результат в папку "app/css/"
+	.pipe(dest('css/')) // Выгрузим результат в папку "app/css/"
 	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
 async function images() {
 	imagecomp(
-		"/images/src/**/*", // Берём все изображения из папки источника
-		"/images/dest/", // Выгружаем оптимизированные изображения в папку назначения
+		"images/src/**/*", // Берём все изображения из папки источника
+		"images/dest/", // Выгружаем оптимизированные изображения в папку назначения
 		{ compress_force: false, statistic: true, autoupdate: true }, false, // Настраиваем основные параметры
 		{ jpg: { engine: "mozjpeg", command: ["-quality", "75"] } }, // Сжимаем и оптимизируем изображеня
 		{ png: { engine: "pngquant", command: ["--quality=75-100", "-o"] } },
@@ -76,8 +71,8 @@ async function images() {
 	)
 }
 
-function cleanimg() {
-	return del('/images/dest/**/*', { force: true }) // Удаляем все содержимое папки "app/images/dest/"
+const cleanimg = () => {
+	return del('images/dest/**/*', { force: true }) // Удаляем все содержимое папки "app/images/dest/"
 }
 
 // function buildcopy() {
@@ -90,23 +85,23 @@ function cleanimg() {
 // 	.pipe(dest('dist')) // Выгружаем в папку с финальной сборкой
 // }
 
-function cleandist() {
-	return del('dist/**/*', { force: true }) // Удаляем все содержимое папки "dist/"
-}
+// function cleandist() {
+// 	return del('dist/**/*', { force: true }) // Удаляем все содержимое папки "dist/"
+// }
 
-function startwatch() {
+const startwatch = () => {
 
 	// Выбираем все файлы JS в проекте, а затем исключим с суффиксом .min.js
-	watch(['/**/*.js', '!app/**/*.min.js'], scripts);
+	watch(['**/*.js', '!**/*.min.js'], scripts);
 	
 	// Мониторим файлы препроцессора на изменения
-	watch('/**/' + preprocessor + '/**/*', styles);
+	watch('**/sass/**/*', styles);
 
 	// Мониторим файлы HTML на изменения
-	watch('/**/*.html').on('change', browserSync.reload);
+	watch('**/*.html').on('change', browserSync.reload);
 
 	// Мониторим папку-источник изображений и выполняем images(), если есть изменения
-	watch('/images/src/**/*', images);
+	watch('images/src/**/*', images);
 
 }
 
