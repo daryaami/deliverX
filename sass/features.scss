@@ -1,0 +1,28 @@
+.features {
+
+    // .features__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .features__title
+
+    &__title {
+        font-size: 28px;
+        line-height: 40px;
+        text-align: center;
+        color: #121212;
+    }
+
+    // .features__subtitle
+
+    &__subtitle {
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        color: #656565;
+    }
+}

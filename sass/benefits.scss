@@ -1,0 +1,98 @@
+.benefits {
+
+    // .benefits__main
+
+    &__main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 200px 0 80px 0;
+    }
+
+    // .benefits__text-block
+
+    &__text-block {
+        max-width: 72%;
+    }
+
+    // .benefits__title
+
+    &__title {
+        line-height: 54px;
+        margin: 0 0 16px 0;
+    }
+
+    // .benefits__subtitle
+
+    &__subtitle {
+        margin: 0 0 33px 0;
+    }
+
+    // .benefits__items
+
+    &__items {
+        display: grid;
+        grid-template-columns: 40% 40%;
+        grid-template-rows: 40% 40%;
+        gap: 48px;
+    }
+
+    // .benefits__item
+
+    &__item {
+        max-width: 250px;
+    }
+
+    // .benefits__picture
+
+    &__picture {
+        margin: 0 0 24px 0;
+    }
+
+    // .benefits__feature-title
+
+    &__feature-title {
+        font-size: 22px;
+        line-height: 28px;
+        margin: 0 0 14px 0;
+    }
+
+    // .benefits__feature-suptitle
+
+    &__feature-subtitle {
+        font-size: 14px;
+        line-height: 30px;
+        color: #656565;
+    }
+
+    // .benefits__image
+
+    &__image {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "";
+            top: 10%;
+            left: -25%;
+            background-image: url("../images/dest/pictures/Framebrowse2.png");
+            background-repeat: no-repeat;
+            width: 282px;
+            height: 570px;
+        }
+    }
+
+    // .benefits__buttons
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 27px;
+        padding: 0 0 200px 0;
+    }
+
+    // .benefits__button
+
+    &__button { 
+    }
+}

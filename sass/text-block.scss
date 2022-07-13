@@ -1,0 +1,37 @@
+.text-block {
+
+    // .text-block__suptitle
+
+    &__suptitle {
+        line-height: 20px;
+        letter-spacing: 1.08px;
+        text-transform: uppercase;
+        color: $colorMain;
+    }
+
+    // .text-block__title
+
+    &__title {
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 72px;
+
+        &_big {
+            font-size: 62px;
+        }
+    }
+
+    // .text-block__subtitle
+
+    &__subtitle {
+        font-size: 12px;
+        line-height: 30px;
+        color: #656565;
+
+        // .text-block__suptitle_big
+
+        &_big {
+            font-size: 18px;
+        }
+    }
+}
