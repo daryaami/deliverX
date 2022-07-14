@@ -19,6 +19,13 @@
         &_big {
             font-size: 62px;
         }
+        // .text-block__title_white
+
+        &_white {
+            font-size: 56px;
+            line-height: 66px;
+            color: #FFFFFF;
+        }
     }
 
     // .text-block__subtitle
@@ -32,6 +39,12 @@
 
         &_big {
             font-size: 18px;
+        }
+
+        // .text-block__subtitle_white
+
+        &_white {
+            color: #FFFFFF;
         }
     }
 }

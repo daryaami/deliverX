@@ -1,0 +1,116 @@
+.feedback {
+    background: #FAFAFA;
+    padding: 200px 0 330px 0;
+    // .feedback__content
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 0 48px 0;
+    }
+
+    // .feedback__text
+
+    &__text {
+    }
+
+    // .feedback__title
+
+    &__title {
+        font-size: 44px;
+        line-height: 54px;
+        margin: 0 0 22px 0;
+    }
+
+    // .feedback__subtitle
+
+    &__subtitle {
+        font-size: 12px;
+        line-height: 30px;
+        color: #656565;
+        max-width: 460px;
+    }
+
+    // .feedback__buttons
+
+    &__buttons {
+        align-self: flex-end;
+        display: flex;
+        gap: 27px;
+    }
+
+    // .feedback__clients
+
+    &__clients {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 28px;
+    }
+
+    // .feedback__client
+
+    &__client {
+        background: #FFFFFF;
+        border: 1px solid #EDEDED;
+        box-shadow: 0px 2px 12px rgba(16, 16, 16, 0.08);
+        border-radius: 24px;
+        padding: 40px 33px 49px;
+        position: relative;
+        &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            background: #EEF8FF;
+            border-radius: 8px;
+            width: 36px;
+            height: 36px;
+            top: 55px;
+            right: 33px;
+        }
+    }
+
+    // .feedback__client-profile
+
+    &__client-profile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 30px 0;
+    }
+
+    // .feedback__client-photo
+
+    &__client-photo {
+    }
+
+    // .feedback__client-info
+
+    &__client-info {
+    }
+
+    // .feedback__client-name
+
+    &__client-name {
+        font-size: 18px;
+        line-height: 20px;
+        margin: 0 0 6px 0;
+    }
+
+    // .feedback__client-address
+
+    &__client-address {
+        font-size: 16px;
+        line-height: 18px;
+        color: #FF5634;
+    }
+
+    // .feedback__quote
+
+    &__quote {
+        font-size: 18px;
+        line-height: 30px;
+        color: #656565;
+    }
+}

@@ -2,19 +2,27 @@
 @import "null";
 // Общие стили
 @import "common";
-// header.scss
-@import "header";
 
 // button.scss
 @import "button";
-// intro.scss
-@import "intro";
 // text-block.scss
 @import "text-block";
 
+// header.scss
+@import "header";
+// intro.scss
+@import "intro";
 // delivery-sys.scss
 @import "delivery-sys";
 // features.scss
 @import "features";
-// benefits
+// benefits.scss
 @import "benefits";
+// gallery.scss
+@import "gallery";
+// pros.scss
+@import "pros";
+// app-info.scss
+@import "app-info";
+// feedback.scss
+@import "feedback";

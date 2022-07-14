@@ -1,0 +1,119 @@
+.gallery {
+    background-color: #121212;
+    height: 854px;
+    overflow: hidden;
+    // .gallery__container 
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    // .gallery__content
+
+    &__content {
+        padding: 270px 0 0 0;
+    }
+
+    // .gallery__title
+
+    &__title {
+        margin: 0 0 16px 0;
+    }
+
+    // .gallery__suptitle
+
+    &__subtitle {
+        margin: 0 0 27px 0;
+    }
+
+    // .gallery__button
+
+    &__button {
+        
+    }
+
+    // .gallery__pictures
+
+    &__pictures {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        transform: translate(110px, 0);
+    }
+
+    // .gallery__stripe
+
+    &__stripe {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    // .gallery__stripe-left
+
+    &__stripe-left {
+        transform: translate(0, -161px);
+    }
+
+    // .gallery__stripe-right
+
+    &__stripe-right {
+        transform: translate(0, -290px);
+    }
+
+    // .gallery__item
+
+    &__item {
+        height: 305px;
+        width: 323px;
+    
+        // .gallery__item_1-1
+
+		&_1-1 {
+            background-image: url("../images/dest/pictures/IMAGEgallery1-1.jpg");
+		}
+
+		// .gallery__item_1-2
+
+		&_1-2 {
+            background-image: url("../images/dest/pictures/IMAGEgallery1-2.jpg");
+		}
+
+		// .gallery__item_1-3
+
+		&_1-3 {
+            background-image: url("../images/dest/pictures/IMAGEgallery1-3.jpg");
+		}
+
+		// .gallery__item_1-4
+
+		&_1-4 {
+            background-image: url("../images/dest/pictures/IMAGEgallery1-4.jpg");
+		}
+
+        // .gallery__item_2-1
+
+        &_2-1 {
+            background-image: url("../images/dest/pictures/IMAGEgallery2-1.jpg");
+        }
+
+        // .gallery__item_2-2
+
+        &_2-2 {
+            background-image: url("../images/dest/pictures/IMAGEgallery2-2.jpg");
+        }
+
+        // .gallery__item_2-3
+
+        &_2-3 {
+            background-image: url("../images/dest/pictures/IMAGEgallery2-3.jpg");
+        }
+
+        // .gallery__item_2-4
+
+        &_2-4 {
+            background-image: url("../images/dest/pictures/IMAGEgallery2-4.jpg");
+        }
+    }
+}
