@@ -3,7 +3,11 @@
     // .text-block__suptitle
 
     &__suptitle {
+<<<<<<< HEAD
         line-height: 1.11;
+=======
+        line-height: 20px;
+>>>>>>> 26b99d8d44e3c45521417cbc3300720c8d7e6acb
         letter-spacing: 1.08px;
         text-transform: uppercase;
         color: $colorMain;
@@ -13,18 +17,31 @@
 
     &__title {
         font-weight: 700;
+<<<<<<< HEAD
         font-size: rem(44);
         line-height: 1.64;
 
         &_big {
             font-size: rem(62);
             line-height: 1.17;
+=======
+        font-size: 44px;
+        line-height: 72px;
+
+        &_big {
+            font-size: 62px;
+>>>>>>> 26b99d8d44e3c45521417cbc3300720c8d7e6acb
         }
         // .text-block__title_white
 
         &_white {
+<<<<<<< HEAD
             font-size: rem(56);
             line-height: 1.18;
+=======
+            font-size: 56px;
+            line-height: 66px;
+>>>>>>> 26b99d8d44e3c45521417cbc3300720c8d7e6acb
             color: #FFFFFF;
         }
     }
@@ -32,10 +49,22 @@
     // .text-block__subtitle
 
     &__subtitle {
+<<<<<<< HEAD
         font-size: rem(12);
         line-height: 2.5;
         color: #656565;
 
+=======
+        font-size: 12px;
+        line-height: 30px;
+        color: #656565;
+
+        // .text-block__suptitle_big
+
+        &_big {
+            font-size: 18px;
+        }
+>>>>>>> 26b99d8d44e3c45521417cbc3300720c8d7e6acb
 
         // .text-block__subtitle_white
 
