@@ -1,0 +1,170 @@
+.intro {
+    // .intro__main
+    overflow: hidden;
+    &__main {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    // .intro__content
+
+    &__content {
+        flex: 1 0 auto;
+        margin: 163px 0 0 0;
+        max-width: 50%;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "";
+            top: -5%;
+            left: 110%;
+            background-image: url("../images/dest/pictures/IMAGEbrowse.png");
+            width: rem(356);
+            height: rem(710);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    // .intro__text-block
+
+    &__text-block {
+
+    }
+    // .intro__suptitle
+
+    &__suptitle {
+        margin: 0 0 33px 0;
+    }
+
+    // .intro__title
+
+    &__title {
+        margin: 0 0 16px 0;
+    }
+
+    // .intro__subtitle
+
+    &__subtitle {
+        margin: 0 0 28px 0;
+    }
+
+
+    // .intro__buttons
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 2vw;
+        position: relative;
+        margin: 0 0 121px 0;
+        &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            top: 182%;
+            left: 0;
+            background: #CACACA;
+        }
+    }
+
+    // .intro__button
+
+    &__button {
+    }
+
+    // .intro__scores
+
+    &__scores {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin: 0 0 180px 0;
+    }
+
+    // .intro__score-item
+
+    &__score-item {
+    }
+
+    // .intro__score-count
+
+    &__score-count {
+        font-weight: 700;
+        font-size: rem(56);
+        line-height: 1.17;
+        span {
+            font-weight: 400;
+            color: $colorMain;
+        }
+    }
+
+    // .intro__score-desc
+
+    &__score-desc {
+        color: #656565;
+    }
+
+
+    // .intro__image
+
+    &__image {
+        z-index: -1;
+        transform: translate(185px, 0);
+        background-image: url("../images/dest/IMAGEmain.jpg");
+        height: rem(912);
+        width: rem(575);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    // .intro__partners
+
+    &__partners {
+        
+    }
+
+    // .intro__partners-suptitle
+
+    &__partners-suptitle {
+        font-size: rem(20);
+        line-height: 1.1;
+        text-align: center;
+        color: #656565;
+        margin: 132px 0 48px 0;
+    }
+
+    // .intro__partners-restaurants
+
+    &__partners-restaurants {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 0 148px 0;
+        position: relative;
+        flex-wrap: wrap;
+        row-gap: 30px;
+        column-gap: 20px;
+        &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background: #CACACA;
+        }
+    }
+
+    // .intro__partners-item
+
+    &__partners-item {
+        width: 239px;
+        height: 40px;
+    }
+}

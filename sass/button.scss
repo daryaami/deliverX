@@ -1,0 +1,40 @@
+.button {
+    background: $colorMain;
+    border: 1px solid $colorMain;
+    border-radius: 12px;
+    color: white;
+    padding: rem(19) rem(25);
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.05));
+    display: inline-block;
+    transition: all 0.4s ease;
+    white-space: nowrap;
+    
+    &:hover {
+        // background: #ffae92;
+
+        // border: 1px solid white;
+        border: 1px solid #EDEDED;
+        background: white;
+        color: #121212;
+        filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
+        transition: all 0.4s ease;
+    }
+
+    // .button_white
+
+    &_white {
+        color: #121212;
+        background: white;
+        border: 1px solid #EDEDED;
+        transition: all 0.4s ease;
+
+        &:hover {
+            background: $colorMain;
+            border: 1px solid $colorMain;
+            transition: all 0.4s ease;
+            color: white;
+            filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
+            
+        }
+    }
+}

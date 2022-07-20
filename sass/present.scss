@@ -1,0 +1,71 @@
+.present {
+    background: #FAFAFA;
+    overflow: hidden;
+
+    &__wrapper {
+        background-color: #121212;
+        margin: 130px 0 0 0;
+    }
+
+    // .present__container
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__text-block {
+        padding: 180px 0 176px 0;
+        max-width: 40%;
+    }
+
+    // .present__title
+
+    &__title {
+        margin: 0 0 20px 0;
+    }
+
+    // .present__subtitle
+
+    &__subtitle {
+        margin: 0 0 40px 0;
+    }
+
+    // .present__button
+
+    &__button {
+    }
+
+    // .present__pictures
+
+    &__pictures {
+        position: relative;
+        &::before {
+            position: absolute;
+            content: "";
+            top: -55px;
+            right: -60px;
+            background-image: url("../images/dest/pictures/IMAGEpresent_2.png");
+            width: rem(332);
+            height: rem(668);
+            filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+            transform: rotate(13.61deg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+        &::after {
+            position: absolute;
+            content: "";
+            top: -50px;
+            right: 215px;
+            background-image: url("../images/dest/pictures/IMAGEpresent_1.png");
+            width: rem(319);
+            height: rem(638);
+            filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+            transform: rotate(-13.06deg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }    
+    }
+}

@@ -1,0 +1,143 @@
+.app-info {
+    padding: 0 0 89px 0;
+    // .app-info__block
+
+    &__block {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 198px;
+    }
+
+    // .app-info__content
+
+    &__content {
+        margin: 147px 0 0 55px;
+        padding: 0 20px 0 0;
+    }
+
+    // .app-info__title
+
+    &__title {
+        font-weight: 700;
+        font-size: rem(44);
+        line-height: 1.23;
+        margin: 0 0 10px 0;
+        &_normal {
+            font-weight: 400;
+            margin: 0 0 15px 0;
+        }
+    }
+
+    // .app-info__subtitle
+
+    &__subtitle {
+        line-height: 1.67;
+        color: #656565;
+        margin: 0 0 33px 0;
+    }
+
+    // .app-info__items
+
+    &__items {
+        margin: 0 0 60px 0;
+    }
+
+    // .app-info__item
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 32px 0;
+        gap: 28px;
+    }
+
+    // .app-info__item-pic
+
+    &__item-pic {
+        height: 72px;
+        width: 72px;
+    }
+
+    // .app-info__item-text
+
+    &__item-text {
+    }
+
+    // .app-info__item-title
+
+    &__item-title {
+        font-size: rem(24);
+        line-height: 1.42;
+        margin: 0 0 14px 0;
+    }
+
+    // .app-info__item-subtitle
+
+    &__item-subtitle {
+        font-size: rem(13);
+        line-height: 2.3;
+        color: #656565;
+    }
+
+    // .app-info__pictures
+
+    &__pictures {
+        min-width: 50%;
+        // max-height: 689px;
+        background: #FF5634;
+        border-radius: 32px;
+
+        &_first {
+            position: relative;
+            &::before {
+                position: absolute;
+                content: "";
+                top: 70px;
+                left: 60px;
+                background-image: url("../images/dest/pictures/IMAGEapp-info__screen1.png");
+                width: rem(349);
+                height: rem(704);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                top: 224px;
+                right: 60px;
+                background-image: url("../images/dest/pictures/IMAGEapp-info__decor1.png");
+                width: rem(341);
+                height: rem(341);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+        }
+
+        &_sec {
+            position: relative;
+            &::before {
+                position: absolute;
+                content: "";
+                top: 70px;
+                right: 60px;
+                background-image: url("../images/dest/pictures/IMAGEapp-info__screen2.png");
+                width: rem(349);
+                height: rem(704);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                top: 224px;
+                left: 60px;
+                background-image: url("../images/dest/pictures/IMAGEapp-info__decor2.png");
+                width: rem(341);
+                height: rem(341);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}

@@ -1,0 +1,124 @@
+.delivery-sys {
+    margin: 199px 0 0 0;
+    // .delivery-sys__button
+
+    &__button {
+    }
+
+    // .delivery-sys__text
+
+    &__text-block {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .delivery-sys__features
+
+    &__features {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    // .delivery-sys__picture
+
+    &__picture {
+        margin: 0 0 32px 0;
+        width: rem(218);
+        height: rem(218);
+    }
+
+    // .delivery-sys__feature-title
+
+    &__feature-title {
+        margin: 0 0 15px 0;
+    }
+
+    // .delivery-sys__feature-subtitle
+
+    &__feature-subtitle {
+        margin: 0 0 53px 0;
+    }
+
+    // .delivery-sys__item
+
+    &__item {
+        max-width: 342px;
+    }
+
+    // .delivery-sys__buttons
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 26px;
+        justify-content: center;
+        padding: 0 0 200px 0;
+        position: relative;
+        &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            bottom: 0;
+            background: #CACACA;
+        }
+    }
+    // .delivery-sys__suptitle
+
+    &__suptitle {
+        margin: 0 0 7px 0;
+    }
+
+    // .delivery-sys__title
+
+    &__title {
+        max-width: 700px;
+        margin: 0 0 22px 0;
+        line-height: 1.23;
+    }
+
+    // .delivery-sys__subtitle
+
+    &__subtitle {
+        margin: 0 0 100px 0;
+    }
+}
+
+@media (max-width: $md2) {
+    
+    .delivery-sys {
+
+        &__features {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        &__item {
+            max-width: none;
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+
+        // .delivery-sys__feature-title
+
+        &__feature-title {
+            text-align: left;
+        }
+
+        // .delivery-sys__feature-subtitle
+
+        &__feature-subtitle {
+            text-align: left;
+        }
+
+    }
+
+}

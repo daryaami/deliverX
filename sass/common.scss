@@ -1,0 +1,44 @@
+$minWidth: 320px;
+$maxWidth: 1440px;
+$maxWidthContainer: 1222px;
+$md1: $maxWidthContainer - 12px;
+$md2: 991.98px;
+$md3: 767.98px;
+$md4: 479.98px;
+$colorMain: #FF5634;
+//Общие стили----------------------------------------------
+
+html {
+    font-size: rem(18);
+    font-family: 'Roboto';
+}
+
+@media (max-width: $md2) {
+    html {
+        font-size: rem(16);
+    }
+}
+@media (max-width: $md3) {
+    html {
+        font-size: rem(14);
+    }
+}
+
+body {
+    color: #121212;
+    &._lock {
+        overflow: hidden;
+    }
+}
+
+.container {
+    box-sizing: border-box;
+    max-width: $md1;
+    padding: 0 12px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.wrapper {
+    width: 100%;
+}

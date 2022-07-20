@@ -1,0 +1,22 @@
+.copyright {
+
+    // .copyright__link
+
+    &__link {
+        color: $colorMain;
+        margin-left: 10px;
+        margin-right: 10px;
+        position: relative;
+        display: inline-block;
+
+        &:hover::after {
+            display: block;
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: $colorMain;
+            bottom: -2px;
+        }
+    }
+}
