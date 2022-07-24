@@ -19,8 +19,8 @@
             top: -5%;
             left: 110%;
             background-image: url("../images/dest/pictures/IMAGEbrowse.png");
-            width: rem(356);
-            height: rem(710);
+            height: 44.37rem;
+            width: 22.25rem;
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -168,3 +168,15 @@
         height: 40px;
     }
 }
+
+// @media (max-width: 860px) {
+//     .intro {
+//         // .intro__content
+
+//         &__content::after {
+//             background-image: url("../images/dest/pictures/IMAGEbrowse.png");
+//             width: rem(356);
+//             height: rem(710);
+//             }
+//         }
+//     }

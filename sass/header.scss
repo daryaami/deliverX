@@ -38,7 +38,7 @@
     // .header__item
 
     &__item {
-        margin: 0 26px 0 0;
+        margin: 0 rem(26) 0 0;
         color: #121212;
         position: relative;
 
@@ -89,3 +89,14 @@
         
     }
 }
+
+// @media (max-width: $md2) {
+//     .header {
+//         // .header__logo
+
+//         &__logo {
+//             width: 100px;
+//             background-size: cover;
+//         }
+//     }
+// }
